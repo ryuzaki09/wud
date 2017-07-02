@@ -2,7 +2,6 @@
 
 class UserController extends \BaseController
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -35,6 +34,11 @@ class UserController extends \BaseController
         $user->save();
 
         //XXXXXXXXXXXXXXX Send email to user
+        $from = \Config::get('app.email_from');
+        $this->setFrom($from);
+        $this->setTo($user->email);
+        $this->setBody($user->firstname." has been added");
+        $this->sendMail();
 
         return Response::json(array(
             'error' => false,
