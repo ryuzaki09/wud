@@ -13,8 +13,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a ui-sref="main.home">Home</a></li>
-        <li><a ui-sref="main.users">Users</a></li>
+        <li ng-repeat="nav in states"><a ui-sref="{{ nav.name }}">{{ nav.controllerAs }}</a></li>
+        <!-- <li><a ui-sref="main.home">Home</a></li> -->
+        <!-- <li><a ui-sref="main.users">Users</a></li> -->
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
